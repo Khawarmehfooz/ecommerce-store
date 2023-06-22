@@ -334,10 +334,104 @@ aside {
   width: 30px;
   aspect-ratio: 1;
 }
+
+/* ==================== */
+
+/* ==================== */
+
+/* View Product Page */
+
+.product__details {
+  display: flex;
+  gap: 30px;
+}
+.product__gallery {
+  width: 50%;
+}
+.product__gallery img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid grey;
+  border-radius: 2px;
+}
+.product__detail {
+  width: 50%;
+}
+#buy__now__btn {
+  background-color: var(--green-1);
+  color: white;
+  padding: 10px 30px;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+/* -------------------- */
+
+/* ------------------- */
+/* Checkout Page */
+
+.review__item {
+  border: 1px solid grey;
+  border-radius: 2px;
+  padding: 15px 30px;
+}
+.review__item__details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.review__item__left {
+  display: flex;
+  align-items: center;
+}
+.review__item__left figure img {
+  width: 200px;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 1;
+  border: 1px solid grey;
+  border-radius: 2px;
+}
+.delivery__information {
+  border: 1px solid grey;
+  border-radius: 2px;
+  margin-top: 10px;
+  padding: 15px 30px;
+}
+.delivery__information__form,
+.card__information__form {
+  display: flex;
+  gap: 10px 100px;
+  flex-wrap: wrap;
+}
+.card__information {
+  margin: 20px 0;
+  border: 1px solid grey;
+  border-radius: 2px;
+  padding: 15px 20px;
+}
+.delivery__information__label {
+  display: block;
+}
+.place__order__btn {
+  background-color: var(--green-1);
+
+  padding: 15px 40px;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+}
+.place__order__btn a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
 /* footer */
 hr {
   background: linear-gradient(var(--green-2), var(--green-3));
-  border: none;
+  border-color: linear-gradient(var(--green-2), var(--green-3));
 }
 .footer__nav__items {
   display: flex;
@@ -399,6 +493,24 @@ hr {
   }
   .copy__rights {
     text-align: center;
+  }
+  /* View Product Page */
+  .product__details {
+    flex-direction: column;
+  }
+  .product__gallery {
+    width: 100%;
+  }
+  .product__gallery img {
+    /* height: 300px; */
+    width: 300px;
+    display: block;
+    aspect-ratio: 1;
+    margin-inline: auto;
+  }
+  .product__detail {
+    width: 100%;
+    padding: 0 20px;
   }
 }
 @media only screen and (max-width: 550px) {
