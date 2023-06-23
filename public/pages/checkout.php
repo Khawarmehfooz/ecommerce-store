@@ -43,6 +43,10 @@ include(SHARED_PATH . '/public_header.php');
                     <input type="text" name="" id="address">
                 </div>
                 <div class="form__group">
+                    <label for="country" class="delivery__information__label">Country</label>
+                    <input type="text" name="" id="country">
+                </div>
+                <div class="form__group">
                     <label for="city" class="delivery__information__label">City</label>
                     <input type="text" name="" id="city">
                 </div>

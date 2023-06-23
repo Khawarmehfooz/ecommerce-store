@@ -22,46 +22,36 @@ include(SHARED_PATH . '/admin_header.php');
                     <td>T Shirt</td>
                     <td>John Doe</td>
                     <td>Kings Landing</td>
-                    <th>
+                    <td>
                         <form action="">
                             <input type="checkbox" name="order-status" id="">
                         </form>
-                    </th>
-                </tr>
+                    </td>
+                <tr>
                 <tr>
                     <td>1001</td>
                     <td>T Shirt</td>
                     <td>John Doe</td>
                     <td>Kings Landing</td>
-                    <th>
+                    <td>
                         <form action="">
                             <input type="checkbox" name="order-status" id="">
                         </form>
-                    </th>
-                </tr>
+                    </td>
+                <tr>
                 <tr>
                     <td>1001</td>
                     <td>T Shirt</td>
                     <td>John Doe</td>
                     <td>Kings Landing</td>
-                    <th>
+                    <td>
                         <form action="">
                             <input type="checkbox" name="order-status" id="">
                         </form>
-                    </th>
-                </tr>
+                    </td>
                 <tr>
-                    <td>1001</td>
-                    <td>T Shirt</td>
-                    <td>John Doe</td>
-                    <td>Kings Landing</td>
-                    <th>
-                        <form action="">
-                            <input type="checkbox" name="order-status" id="">
-                        </form>
-                    </th>
-                </tr>
             </table>
+            <a href="./manage_order.php" class="view__all">View All</a>
         </fieldset>
         <fieldset>
             <legend>
@@ -94,6 +84,7 @@ include(SHARED_PATH . '/admin_header.php');
                     <td>34</td>
                 </tr>
             </table>
+            <a href="./manage_products.php" class="view__all">View All</a>
         </fieldset>
         <fieldset>
             <legend>
@@ -121,7 +112,9 @@ include(SHARED_PATH . '/admin_header.php');
                     <td>johndoe@example.com</td>
                 </tr>
 
+
             </table>
+            <a href="#" class="view__all">View All</a>
         </fieldset>
     </div>
 </div>

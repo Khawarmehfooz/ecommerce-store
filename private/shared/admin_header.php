@@ -15,9 +15,9 @@
             <h1 class="brand">STORE</h1>
         </div>
         <ul class="nav__items">
-            <li class="nav__item"><a href="#" class="nav__link">Dashboard</a></li>
-            <li class="nav__item"><a href="#" class="nav__link">Manage Products</a></li>
-            <li class="nav__item"><a href="#" class="nav__link">Manage Orders</a></li>
+            <li class="nav__item"><a href="../../private/dashboard/index.php" class="nav__link">Dashboard</a></li>
+            <li class="nav__item"><a href="../../private/dashboard/manage_products.php" class="nav__link">Manage Products</a></li>
+            <li class="nav__item"><a href="../../private/dashboard/manage_order.php" class="nav__link">Manage Orders</a></li>
             <li class="nav__item"><a href="#" class="nav__link">Manage Users</a></li>
         </ul>
     </div>

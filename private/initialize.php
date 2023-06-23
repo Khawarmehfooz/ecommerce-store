@@ -9,3 +9,6 @@ $doc_root = substr($_SERVER['SCRIPT_NAME'], 0, $public_end);
 define("WWW_ROOT", $doc_root);
 
 require_once('function.php');
+require('db_credentials.php');
+require('database.php');
+$db = db_connect();
