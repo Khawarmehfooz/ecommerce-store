@@ -163,7 +163,7 @@ nav {
 .product__price {
   font-weight: 600;
   font-size: 30px;
-  color: var(--orange);
+  color: var(--green-1);
 }
 .product__img {
   width: 100%;
