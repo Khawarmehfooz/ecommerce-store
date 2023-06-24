@@ -1,8 +1,11 @@
 <?php
 require_once('../private/initialize.php');
-
 $page_title = "Home";
 include(SHARED_PATH . '/public_header.php');
+$sql = "SELECT * FROM products";
+$res = mysqli_query($db, $sql);
+$select_category = "SELECT DISTINCT product_category FROM products";
+$category_res = mysqli_query($db, $select_category);
 ?>
 <div class="container">
     <header>
@@ -15,106 +18,29 @@ include(SHARED_PATH . '/public_header.php');
         <main>
             <h1 class="text-center featured__title"><span>Featured Products</span></h1>
             <div class="product__container">
-                <div class="product__card">
-                    <div class="">
-                        <img class="product__img" src="./images/products/product-img-1.jpg" alt="">
+                <?php while ($product = mysqli_fetch_assoc($res)) { ?>
+                    <div class="product__card">
+                        <div class="">
+                            <img class="product__img" src="./images/products/product-img-1.jpg" alt="">
+                        </div>
+                        <h3 class="product__name"><?php echo htmlspecialchars($product["product_name"]) ?></h3>
+                        <h4 class="product__price">$<?php echo htmlspecialchars($product["product_price"]) ?></h4>
+                        <div class="product__action__links">
+                            <a href="./pages/view_product.php?product_id=<?php echo htmlspecialchars(urlencode($product["product_id"])) ?>">View</a>
+                            <a href="#">Buy</a>
+                        </div>
                     </div>
-                    <h3 class="product__name">T shirt</h3>
-                    <h4 class="product__price">39$</h4>
-                    <div class="product__action__links">
-                        <a href="#">View</a>
-                        <a href="#">Buy</a>
-                    </div>
-                </div>
-                <div class="product__card">
-                    <div class="">
-                        <img class="product__img" src="./images/products/product-img-1.jpg" alt="">
-                    </div>
-                    <h3 class="product__name">T shirt</h3>
-                    <h4 class="product__price">39$</h4>
-                    <div class="product__action__links">
-                        <a href="#">View</a>
-                        <a href="#">Buy</a>
-                    </div>
-                </div>
-                <div class="product__card">
-                    <div class="">
-                        <img class="product__img" src="./images/products/product-img-1.jpg" alt="">
-                    </div>
-                    <h3 class="product__name">T shirt</h3>
-                    <h4 class="product__price">39$</h4>
-                    <div class="product__action__links">
-                        <a href="#">View</a>
-                        <a href="#">Buy</a>
-                    </div>
-                </div>
-                <div class="product__card">
-                    <div class="">
-                        <img class="product__img" src="./images/products/product-img-1.jpg" alt="">
-                    </div>
-                    <h3 class="product__name">T shirt</h3>
-                    <h4 class="product__price">39$</h4>
-                    <div class="product__action__links">
-                        <a href="#">View</a>
-                        <a href="#">Buy</a>
-                    </div>
-                </div>
-                <div class="product__card">
-                    <div class="">
-                        <img class="product__img" src="./images/products/product-img-1.jpg" alt="">
-                    </div>
-                    <h3 class="product__name">T shirt</h3>
-                    <h4 class="product__price">39$</h4>
-                    <div class="product__action__links">
-                        <a href="#">View</a>
-                        <a href="#">Buy</a>
-                    </div>
-                </div>
-                <div class="product__card">
-                    <div class="">
-                        <img class="product__img" src="./images/products/product-img-1.jpg" alt="">
-                    </div>
-                    <h3 class="product__name">T shirt</h3>
-                    <h4 class="product__price">39$</h4>
-                    <div class="product__action__links">
-                        <a href="#">View</a>
-                        <a href="#">Buy</a>
-                    </div>
-                </div>
-                <div class="product__card">
-                    <div class="">
-                        <img class="product__img" src="./images/products/product-img-1.jpg" alt="">
-                    </div>
-                    <h3 class="product__name">T shirt</h3>
-                    <h4 class="product__price">39$</h4>
-                    <div class="product__action__links">
-                        <a href="#">View</a>
-                        <a href="#">Buy</a>
-                    </div>
-                </div>
-                <div class="product__card">
-                    <div class="">
-                        <img class="product__img" src="./images/products/product-img-1.jpg" alt="">
-                    </div>
-                    <h3 class="product__name">T shirt</h3>
-                    <h4 class="product__price">39$</h4>
-                    <div class="product__action__links">
-                        <a href="#">View</a>
-                        <a href="#">Buy</a>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
         </main>
         <aside>
             <div class="categories">
                 <h3 class="text-center aside__heading">Categories</h3>
-                <ul class="category__items">
-                    <li class="category__item"><a href="#" class="category__link">Shopping Bags</a></li>
-                    <li class="category__item"><a href="#" class="category__link">Formal Dress</a></li>
-                    <li class="category__item"><a href="#" class="category__link">Casual Dress</a></li>
-                    <li class="category__item"><a href="#" class="category__link">Watches</a></li>
-                    <li class="category__item"><a href="#" class="category__link">Shoes</a></li>
-                </ul>
+                <?php while ($category = mysqli_fetch_assoc($category_res)) { ?>
+                    <ul class="category__items">
+                        <li class="category__item"><a href="#" class="category__link"><?php echo htmlspecialchars($category["product_category"]) ?></a></li>
+                    </ul>
+                <?php } ?>
             </div>
             <div class="product__selection">
                 <h3 class="text-center aside__heading">Select Products</h3>

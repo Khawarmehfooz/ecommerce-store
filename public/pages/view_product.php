@@ -2,46 +2,54 @@
 require_once('../../private/initialize.php');
 $page_title = "View Product";
 include(SHARED_PATH . '/public_header.php');
+// 
+$product_id = htmlspecialchars($_GET['product_id']);
+// echo $id;
+$sql = "SELECT * FROM products WHERE product_id = '" . $product_id . "'";
+$res = mysqli_query($db, $sql);
+
 ?>
 <div class="container">
-    <div class="product__details">
-        <div class="product__gallery">
-            <img src="../images/products/product-img-1.jpg" alt="">
-        </div>
-        <div class="product__detail">
-            <h1 class="product__name">Product Name</h1>
-            <p class="product__description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse, nihil!</p>
-            <hr>
-            <h2 class="product__price">$39</h2>
-            <hr>
-            <form action="">
-                <div class="form__group">
-                    <label for="color">Choose Color:</label>
-                    <select name="" id="color">
-                        <option value="">Choose Color</option>
-                        <option value="black">Black</option>
-                        <option value="white">White</option>
-                    </select>
-                </div>
-                <div class="form__group">
-                    <label for="quantity">Quantity: </label>
-                    <input type="number" name="" id="quantity" min="1" max="5">
-                </div>
+    <?php while ($product_detail = mysqli_fetch_assoc($res)) { ?>
+        <div class="product__details">
+            <div class="product__gallery">
+                <img src="../images/products/product-img-1.jpg" alt="">
+            </div>
+            <div class="product__detail">
+                <h1 class="product__name"><?php echo htmlspecialchars($product_detail["product_name"]); ?></h1>
+                <p class="product__description"><?php echo htmlspecialchars($product_detail["product_description"]); ?></p>
                 <hr>
-                <div class="form__group">
-                    <label for="size">Select Size:
-                    </label>
-                    <select name="" id="size">
-                        <option value="">Select Size</option>
-                        <option value="s">Small</option>
-                        <option value="m">Medium</option>
-                        <option value="l">Large</option>
-                        <option value="xl">Extra Large</option>
-                    </select>
-                </div>
+                <h2 class="product__price">$<?php echo htmlspecialchars($product_detail["product_price"]); ?></h2>
                 <hr>
-                <input id="buy__now__btn" type="submit" value="Buy Now">
-            </form>
+                <form action="./checkout.php?product_id=<?php echo htmlspecialchars(urlencode($product_id)) ?>" method="post">
+                    <div class="form__group">
+                        <label for="color">Choose Color:</label>
+                        <select name="color" id="color">
+                            <option value="">Choose Color</option>
+                            <option value="<?php echo htmlspecialchars($product_detail["product_color"]); ?>"><?php echo htmlspecialchars($product_detail["product_color"]); ?></option>
+                        </select>
+                    </div>
+                    <div class="form__group">
+                        <label for="quantity">Quantity: </label>
+                        <input type="number" name="quantity" id="quantity" min="1" max="5">
+                    </div>
+                    <hr>
+                    <div class="form__group">
+                        <label for="size">Select Size:
+                        </label>
+                        <select name="size" id="size">
+                            <option value="">Select Size</option>
+                            <option value="s">Small</option>
+                            <option value="m">Medium</option>
+                            <option value="l">Large</option>
+                            <option value="xl">Extra Large</option>
+                        </select>
+                    </div>
+                    <hr>
+                    <!-- <a type="submit" id="buy__now__btn" href="./checkout.php?product_id=<?php echo htmlspecialchars(urlencode($product_id)) ?>">Buy Now</a> -->
+                    <input id="buy__now__btn" type="submit" value="Buy Now">
+                </form>
+            <?php } ?>
             <h3>Size Chart</h3>
             <table border="1">
                 <tr>
@@ -81,8 +89,8 @@ include(SHARED_PATH . '/public_header.php');
                     <td>9</td>
                 </tr>
             </table>
+            </div>
         </div>
-    </div>
 
 </div>
 <?php
