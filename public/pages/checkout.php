@@ -42,6 +42,10 @@ if (is_post_request()) {
             <h2>Delivery Information</h2>
         </legend>
         <form action="./order.php" method="post">
+            <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($product_id); ?>">
+            <input type="hidden" name="color" value="<?php echo htmlspecialchars($color); ?>">
+            <input type="hidden" name="size" value="<?php echo htmlspecialchars($size); ?>">
+            <input type="hidden" name="quantity" value="<?php echo htmlspecialchars($quantity); ?>">
             <div class="delivery__information__form">
                 <div class="form__group">
                     <label for="first-name" class="delivery__information__label">First Name</label>

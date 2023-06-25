@@ -22,8 +22,26 @@ h6 {
   margin: 0;
   padding: 0;
 }
+table {
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 5px 10px;
+  text-align: left;
+}
 .text-center {
   text-align: center;
+}
+.goback__btn {
+  background-color: #147739;
+  color: white;
+  font-weight: 600;
+  padding: 5px 20px;
+  text-decoration: none;
+  display: block;
+  width: fit-content;
+  margin-top: 15px;
 }
 body {
   max-width: 1200px;

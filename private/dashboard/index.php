@@ -2,6 +2,10 @@
 require_once('../../private/initialize.php');
 $page_title = "Dashboard";
 include(SHARED_PATH . '/admin_header.php');
+
+// Select Orders
+$select_orders = "SELECT * FROM orders";
+$orders = mysqli_query($db, $select_orders);
 ?>
 <div class="container">
     <div class="dashboard__summary__container">
@@ -18,38 +22,22 @@ include(SHARED_PATH . '/admin_header.php');
                     <th>Order Status</th>
                 </tr>
                 <tr>
-                    <td>1001</td>
-                    <td>T Shirt</td>
-                    <td>John Doe</td>
-                    <td>Kings Landing</td>
-                    <td>
-                        <form action="">
-                            <input type="checkbox" name="order-status" id="">
-                        </form>
-                    </td>
-                <tr>
-                <tr>
-                    <td>1001</td>
-                    <td>T Shirt</td>
-                    <td>John Doe</td>
-                    <td>Kings Landing</td>
-                    <td>
-                        <form action="">
-                            <input type="checkbox" name="order-status" id="">
-                        </form>
-                    </td>
-                <tr>
-                <tr>
-                    <td>1001</td>
-                    <td>T Shirt</td>
-                    <td>John Doe</td>
-                    <td>Kings Landing</td>
-                    <td>
-                        <form action="">
-                            <input type="checkbox" name="order-status" id="">
-                        </form>
-                    </td>
-                <tr>
+                    <?php while ($order = mysqli_fetch_assoc($orders)) { ?>
+                        <td><?php echo $order["order_id"] ?></td>
+                        <?php
+                            // select ordered product and customer name
+                        ?>
+                        <td>T Shirt</td>
+                        <td>John Doe</td>
+                        <td>Kings Landing</td>
+                        <td>
+                            <form action="">
+                                <input type="checkbox" name="order-status" id="">
+                            </form>
+                        </td>
+                </tr>
+            <?php } ?>
+
             </table>
             <a href="./manage_order.php" class="view__all">View All</a>
         </fieldset>
