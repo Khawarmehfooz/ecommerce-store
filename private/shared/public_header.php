@@ -19,7 +19,7 @@
             </form>
         </div>
         <ul class="nav__items">
-            <li class="nav__item"><a href="/public/index.php" class="nav__link">Home</a></li>
+            <li class="nav__item"><a href="../../public/index.php" class="nav__link">Home</a></li>
             <li class="nav__item"><a href="" class="nav__link">Products</a></li>
             <li class="nav__item"><a href="#" class="nav__link">About Us</a></li>
             <li class="nav__item"><a href="#" class="nav__link">Contact Us</a></li>

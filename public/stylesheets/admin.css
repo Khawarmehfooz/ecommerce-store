@@ -33,6 +33,12 @@ body {
 nav {
   margin-bottom: 0;
 }
+.brand {
+  font-size: 32px;
+  font-weight: 600;
+  /* text-decoration: none; */
+  color: var(--green-1);
+}
 .top__bar {
   display: flex;
   align-items: center;

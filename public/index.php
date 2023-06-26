@@ -26,8 +26,7 @@ $category_res = mysqli_query($db, $select_category);
                         <h3 class="product__name"><?php echo htmlspecialchars($product["product_name"]) ?></h3>
                         <h4 class="product__price">$<?php echo htmlspecialchars($product["product_price"]) ?></h4>
                         <div class="product__action__links">
-                            <a href="./pages/view_product.php?product_id=<?php echo htmlspecialchars(urlencode($product["product_id"])) ?>">View</a>
-                            <a href="#">Buy</a>
+                            <a href="./pages/view_product.php?product_id=<?php echo htmlspecialchars(urlencode($product["product_id"])) ?>">Buy</a>
                         </div>
                     </div>
                 <?php } ?>
